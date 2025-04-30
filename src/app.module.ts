@@ -11,6 +11,12 @@ import { Todo } from "./todos/models/todo.model";
 import { Content } from "./content/models/content.model";
 import { BlocksModule } from './blocks/blocks.module';
 import { Block } from "./blocks/models/block.model";
+import { UsersModule } from './users/users.module';
+import { RolesModule } from './roles/roles.module';
+import { Role } from "./roles/models/role.model";
+import { User } from "./users/models/user.model";
+import { UserRole } from "./users/models/user-role.model";
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -22,7 +28,7 @@ import { Block } from "./blocks/models/block.model";
       username: process.env.PG_USER,
       password: process.env.PG_PASSWORD,
       database: process.env.PG_DB,
-      models: [Text, HeadingBlock, Todo, Content, Block],
+      models: [Text, HeadingBlock, Todo, Content, Block, Role, User, UserRole],
       autoLoadModels: true,
       sync: { alter: true },
       logging: false,
@@ -32,6 +38,9 @@ import { Block } from "./blocks/models/block.model";
     TodosModule,
     ContentModule,
     BlocksModule,
+    UsersModule,
+    RolesModule,
+    AuthModule,
   ],
   controllers: [],
   providers: [],

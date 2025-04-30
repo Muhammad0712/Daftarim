@@ -1,4 +1,4 @@
-import { Column, DataType, Model } from "sequelize-typescript";
+import { Column, DataType, Model, Table } from "sequelize-typescript";
 
 interface IBlocksCreationAttr {
   typeId: number;
@@ -8,7 +8,7 @@ interface IBlocksCreationAttr {
   colorId: number;
   backgroundColorId: number;
 }
-
+@Table({tableName: "blocks", timestamps: false})
 export class Block extends Model<Block, IBlocksCreationAttr> {
   @Column({
     type: DataType.INTEGER,
